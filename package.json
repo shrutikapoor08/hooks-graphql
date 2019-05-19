@@ -3,7 +3,7 @@
   "version": "0.0.38",
   "description": null,
   "keywords": [],
-  "homepage": "https://codesandbox.io/s/507w9qxrrl",
+  "author": "Shruti Kapoor",
   "main": "index.js",
   "dependencies": {
     "@material-ui/core": "3.9.3",
