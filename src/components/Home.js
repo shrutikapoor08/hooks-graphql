@@ -8,9 +8,8 @@ const Home = ({ data: { loading, error, songs } }) => {
   const [count, setCount] = useState(0);
 
   function addSong(event) {
-    event.persist();
-    this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
+    event.preventDefault();
+    setCount(count + 1)
   }
   if (error) return <h1>Error fetching songs </h1>;
   if (songs) {
@@ -29,9 +28,10 @@ const Home = ({ data: { loading, error, songs } }) => {
             <label htmlFor="addSong">Add a new song</label>
             <input type="text" name="addSong" id="addSong" />
           </div>
-          <button variant="contained" color="primary" type="submit">
+          <Button variant="contained" color="primary" type="submit">
             Add Song
-          </button>
+          </Button>
+          Counter: {count}
         </form>
       </Container>
     );
