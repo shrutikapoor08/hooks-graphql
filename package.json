@@ -1,7 +1,7 @@
 {
-  "name": "setting-up-graphql",
+  "name": "hooks-graphql",
   "version": "0.0.38",
-  "description": null,
+  "description": "A sample integration of React hooks into graphql",
   "keywords": [],
   "author": "Shruti Kapoor",
   "main": "index.js",
