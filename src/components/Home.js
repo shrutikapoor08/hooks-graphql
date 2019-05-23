@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { graphql } from "react-apollo";
-import gql from "graphql-tag";
 import Container from "muicss/lib/react/container";
 import Button from "muicss/lib/react/button";
+import { singleActor } from '../graphql/queries'
+import { addSong } from '../graphql/mutations'
 
 const Home = ({ data: { loading, error, songs } }) => {
   const [count, setCount] = useState(0);
@@ -22,38 +23,36 @@ const Home = ({ data: { loading, error, songs } }) => {
             <p>{song.lyrics}</p>
           </div>
         ))}
+        Counter: {count}
 
-        <form onSubmit={e => addSong(e)}>
-          <div className="preference">
-            <label htmlFor="addSong">Add a new song</label>
-            <input type="text" name="addSong" id="addSong" />
-          </div>
-          <Button variant="contained" color="primary" type="submit">
-            Add Song
-          </Button>
-          Counter: {count}
-        </form>
+        <AddSong onSubmit={addSong}/>
       </Container>
     );
   }
   return <h2>Loading posts...</h2>;
 };
 
-export const singleActor = gql`
-  query songs($actor: String) {
-    songs(where: { actor: $actor }) {
-      name
-      id
-      actor
-      lyrics
-    }
-  }
-`;
+const AddSong = ({onSubmit}) => {
+  //add mutation to this component. Refactor it out.
+  return (
+      <form onSubmit={onSubmit}>
+    <div className="preference">
+      <label htmlFor="addSong">Add a new song</label>
+      <input type="text" name="addSong" id="addSong" />
+    </div>
+    <Button variant="contained" color="primary" type="submit">
+      Add Song
+    </Button>
+  </form>
+  )
+}
 
 export default graphql(singleActor, {
   options: ({ match }) => ({
     variables: {
-      actor: match.params.slug
+      actor: match.params.slug,
+      name: match.params.slug,
+      lyrics: match.params.slug
     }
   })
 })(Home);
