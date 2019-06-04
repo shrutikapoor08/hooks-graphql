@@ -9,6 +9,7 @@ const Home = ({ data: { loading, error, songs } }) => {
   const [count, setCount] = useState(0);
 
   function addSong(event) {
+
     event.preventDefault();
     setCount(count + 1)
   }

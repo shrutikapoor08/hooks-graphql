@@ -8,7 +8,6 @@ class App extends Component {
     return (
       <div>
         <Route exact path="/" component={Home} />
-        <br />
       </div>
     );
   }

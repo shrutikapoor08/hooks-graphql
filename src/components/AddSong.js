@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { graphql } from "react-apollo";
-import { addSong } from '../graphql/mutations'
+import { graphql, Mutation } from "react-apollo";
+import { ADD_SONG } from '../graphql/mutations'
 import Button from "muicss/lib/react/button";
 
 
 const AddSong = ({onSubmit}) => {
     //add mutation to this component. Refactor it out.
     return (
+        <Mutation mutation={ADD_SONG}>
+            {(addSong, data) => (
         <form onSubmit={onSubmit}>
             <div className="preference">
                 <label htmlFor="addSong">Add a new song</label>
@@ -16,13 +18,10 @@ const AddSong = ({onSubmit}) => {
                 Add Song
             </Button>
         </form>
+            )}
+        </Mutation>
     )
 }
 
-export default graphql(addSong, {
-    options: ({ match }) => ({
-        variables: {
-            name: match.params.slug
-        }
-    })
-})(AddSong);
+
+export default AddSong
