@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { graphql } from "react-apollo";
 import Container from "muicss/lib/react/container";
-import Button from "muicss/lib/react/button";
 import { singleActor } from '../graphql/queries'
-import { addSong } from '../graphql/mutations'
+import AddSong from './AddSong'
+
 
 const Home = ({ data: { loading, error, songs } }) => {
   const [count, setCount] = useState(0);
 
   function addSong(event) {
+
     event.preventDefault();
     setCount(count + 1)
   }
@@ -32,20 +33,6 @@ const Home = ({ data: { loading, error, songs } }) => {
   return <h2>Loading posts...</h2>;
 };
 
-const AddSong = ({onSubmit}) => {
-  //add mutation to this component. Refactor it out.
-  return (
-      <form onSubmit={onSubmit}>
-    <div className="preference">
-      <label htmlFor="addSong">Add a new song</label>
-      <input type="text" name="addSong" id="addSong" />
-    </div>
-    <Button variant="contained" color="primary" type="submit">
-      Add Song
-    </Button>
-  </form>
-  )
-}
 
 export default graphql(singleActor, {
   options: ({ match }) => ({
