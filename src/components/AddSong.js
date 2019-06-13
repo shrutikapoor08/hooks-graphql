@@ -9,10 +9,22 @@ const AddSong = ({onSubmit}) => {
     return (
         <Mutation mutation={ADD_SONG}>
             {(addSong, data) => (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={e => {
+            console.log(e);
+            e.preventDefault();
+            addSong({ variables: { song: {
+                        name: e.name,
+                        actor: e.actor,
+                        lyrics: e.lyrics
+                        }}
+                    });
+                }}
+            >
             <div className="preference">
                 <label htmlFor="addSong">Add a new song</label>
-                <input type="text" name="name" id="addSong" />
+                <input type="text" name="name" id="addSong" placeholder="name"/>
+                <input type="text" name="actor" id="actor" placeholder="actor"/>
+                <input type="text" name="lyrics" id="lyrics" placeholder="lyrics"/>
             </div>
             <Button variant="contained" color="primary" type="submit">
                 Add Song
