@@ -4,11 +4,11 @@ import { ADD_SONG } from '../graphql/mutations'
 import Button from "muicss/lib/react/button";
 
 
-const AddSong = ({onSubmit}) => {
+const AddSong = () => {
     //add mutation to this component. Refactor it out.
-    const {name, setName} = useState("");
-    const {actor, setActor} = useState("");
-    const {lyrics, setLyrics} = useState("");
+    const [name, setName] = useState("");
+    const [actor, setActor] = useState("");
+    const [lyrics, setLyrics] = useState("");
 
     return (
         <Mutation mutation={ADD_SONG}>

@@ -6,8 +6,6 @@ import AddSong from './AddSong'
 
 
 const Home = ({ data: { loading, error, songs } }) => {
-  const [count, setCount] = useState(0);
-
   if (error) return <h1>Error fetching songs </h1>;
   if (songs) {
     return (
@@ -19,7 +17,6 @@ const Home = ({ data: { loading, error, songs } }) => {
             <p>{song.lyrics}</p>
           </div>
         ))}
-        Counter: {count}
         <AddSong/>
       </Container>
     );
