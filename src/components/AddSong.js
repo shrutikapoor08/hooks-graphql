@@ -5,7 +5,6 @@ import Button from "muicss/lib/react/button";
 
 
 const AddSong = () => {
-    //add mutation to this component. Refactor it out.
     const [name, setName] = useState("");
     const [actor, setActor] = useState("");
     const [lyrics, setLyrics] = useState("");
@@ -37,6 +36,5 @@ const AddSong = () => {
         </Mutation>
     )
 }
-
 
 export default AddSong
