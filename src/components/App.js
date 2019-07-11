@@ -20,4 +20,3 @@ const App = () => {
 };
 
 export default App;
-g
