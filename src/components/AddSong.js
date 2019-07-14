@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { graphql, Mutation } from "react-apollo";
 import { ADD_SONG } from '../graphql/mutations'
 import Button from "muicss/lib/react/button";
+import Context from '../context';
 
 
 const AddSong = () => {
     const [name, setName] = useState("");
     const [actor, setActor] = useState("");
     const [lyrics, setLyrics] = useState("");
+    const {dispatch} = useContext(Context);
 
     return (
         <Mutation mutation={ADD_SONG}>
@@ -20,8 +22,8 @@ const AddSong = () => {
                         lyrics
                         }}
                     });
-                }}
-            >
+            dispatch({type: "ADD_CONTENT", payload: { song: {name, actor, lyrics}}});
+        }}>
             <div className="preference">
                 <label htmlFor="addSong">Add a new song</label>
                 <input value={name} type="text" name="name" placeholder="name" onChange={e => setName(e.target.value)} />
