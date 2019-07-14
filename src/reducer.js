@@ -3,9 +3,8 @@ export default function reducer(state, action) {
         case "ADD_CONTENT":
             return {
                 ...state,
-                songs: action.payload
-            }
-            break;
+                songs: state.songs.concat(action.payload)
+    };
         default:
             return state
     }

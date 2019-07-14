@@ -24,5 +24,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 
 ## TODO
-- update UI automatically
-- pull from an open source graphQL API
+- ~~update UI automatically~~ (done)
+- delete a song
+- beautify the UI 
+- pull from an open source graphQL API such as spotify

@@ -13,7 +13,7 @@ const AddSong = () => {
 
     return (
         <Mutation mutation={ADD_SONG}>
-            {(addSong, data) => (
+            {(addSong) => (
         <form onSubmit={e => {
             e.preventDefault();
             addSong({ variables: { song: {
@@ -22,7 +22,8 @@ const AddSong = () => {
                         lyrics
                         }}
                     });
-            dispatch({type: "ADD_CONTENT", payload: { song: {name, actor, lyrics}}});
+            const songs = [{name, actor, lyrics}];
+            dispatch({type: "ADD_CONTENT", payload: songs});
         }}>
             <div className="preference">
                 <label htmlFor="addSong">Add a new song</label>
