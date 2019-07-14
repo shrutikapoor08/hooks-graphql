@@ -10,23 +10,22 @@ const Home = ({ data: { loading, error, songs } }) => {
 
     useEffect(() => {
         if(songs) {
-            dispatch({type: "ADD_CONTENT", payload: {songs}});
+            dispatch({type: "ADD_CONTENT", payload: songs});
         }
-    });
+    }, [songs]);
 
-    console.log(state)
     if (error) return <h1>Error fetching songs </h1>;
     if (state ) {
         return (
             <Container>
-                {state.songs && state.songs.songs && state.songs.songs.map(song => (
+                <AddSong/>
+                {state.songs && state.songs.map(song => (
                     <div key={`song-${song.id}`}>
                         <h1>{song.name}</h1>
                         <h3>{song.actor}</h3>
                         <p>{song.lyrics}</p>
                     </div>
                 ))}
-                <AddSong/>
             </Container>
         );
     }

@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 const Context = createContext({
-    songs: null
+    songs: []
 });
 
 export default Context;
