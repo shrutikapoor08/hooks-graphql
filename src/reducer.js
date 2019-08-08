@@ -3,8 +3,8 @@ export default function reducer(state, action) {
         case "ADD_CONTENT":
             return {
                 ...state,
-                songs: state.songs.concat(action.payload)
-    };
+                songs: [...new Set([...state.songs ,...action.payload])]
+            };
         default:
             return state
     }
