@@ -9,3 +9,15 @@ export const ADD_SONG = gql`
     }
   }
 `;
+
+
+
+export const DELETE_SONG = gql`
+    mutation DeleteSong($id: SongWhereUniqueInput!) {
+    deleteSong (where: $id ){
+      name
+      actor
+      lyrics
+    }
+  }
+`;
