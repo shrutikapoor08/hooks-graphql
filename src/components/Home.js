@@ -13,6 +13,7 @@ const Home = ({ data: { loading, error, songs } }) => {
             dispatch({type: "ADD_CONTENT", payload: songs});
         }
     }, [songs]);
+    //todo: cleanup after effect is off.
 
     if (error) return <h1>Error fetching songs </h1>;
     if (state ) {
@@ -25,10 +26,10 @@ const Home = ({ data: { loading, error, songs } }) => {
                         <h3>{song.actor}</h3>
                         <p>{song.lyrics}</p>
                        <Mutation
-                           mutation={DELETE_SONG}
-                           refetchQueries={[{query: singleActor}]}>
+                           mutation={DELETE_SONG}>
                            { (deleteSong) =>
                            <button onClick={() => {
+                               dispatch({type: "DELETE_CONTENT", payload: {id: song.id}});
                                deleteSong({variables: {id: {id: song.id}}});
                            }}>
                                Remove song
