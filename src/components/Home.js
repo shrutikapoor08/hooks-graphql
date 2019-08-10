@@ -1,10 +1,9 @@
 import React, { useEffect, useContext} from "react";
-import {graphql, Mutation} from "react-apollo";
+import {graphql} from "react-apollo";
 import Container from "muicss/lib/react/container";
 import { singleActor } from '../graphql/queries'
 import AddSong from './AddSong'
 import Context from '../context'
-import {DELETE_SONG} from "../graphql/mutations";
 
 const Home = ({ data: { loading, error, songs } }) => {
     const {state, dispatch} = useContext(Context);
@@ -24,17 +23,6 @@ const Home = ({ data: { loading, error, songs } }) => {
                         <h1>{song.name}</h1>
                         <h3>{song.actor}</h3>
                         <p>{song.lyrics}</p>
-                       <Mutation
-                           mutation={DELETE_SONG}
-                           refetchQueries={[{query: singleActor}]}>
-                           { (deleteSong) =>
-                           <button onClick={() => {
-                               deleteSong({variables: {id: {id: song.id}}});
-                           }}>
-                               Remove song
-                           </button>
-                           }
-                       </Mutation>
                     </div>
                 ))}
             </Container>

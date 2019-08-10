@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { graphql, Mutation } from "react-apollo";
+import React, { useState, useContext } from "react";
+import { Mutation } from "react-apollo";
 import { ADD_SONG } from '../graphql/mutations'
 import Button from "muicss/lib/react/button";
 import Context from '../context';
