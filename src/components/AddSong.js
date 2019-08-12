@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import { graphql, Mutation } from "react-apollo";
+import React, { useState, useContext } from "react";
+import { Mutation } from "react-apollo";
 import { ADD_SONG } from '../graphql/mutations'
-import Button from "muicss/lib/react/button";
+import Container from "muicss/lib/react/container";
 import Context from '../context';
 
 
@@ -14,7 +14,7 @@ const AddSong = () => {
     return (
         <Mutation mutation={ADD_SONG}>
             {(addSong) => (
-        <form onSubmit={e => {
+        <form className={'mui-form'} onSubmit={e => {
             e.preventDefault();
             addSong({ variables: { song: {
                         name,
@@ -24,16 +24,24 @@ const AddSong = () => {
                     });
             const songs = [{name, actor, lyrics}];
             dispatch({type: "ADD_CONTENT", payload: songs});
+            setName("");
+            setLyrics("");
+            setActor("");
         }}>
-            <div className="preference">
-                <label htmlFor="addSong">Add a new song</label>
-                <input value={name} type="text" name="name" placeholder="name" onChange={e => setName(e.target.value)} />
-                <input value={actor} type="text" name="actor" placeholder="actor" onChange={e => setActor(e.target.value)}/>
-                <input value={lyrics} type="text" name="lyrics" placeholder="lyrics" onChange={e => setLyrics(e.target.value)}/>
-            </div>
-            <Button variant="contained" color="primary" type="submit">
-                Add Song
-            </Button>
+                <legend>Add a new song</legend>
+                <div className={'mui-textfield mui-textfield--float-label width-small'}>
+                    <input value={name} type="text" name="name" onChange={e => setName(e.target.value)} />
+                    <label>Name</label>
+                </div>
+                <div className="mui-textfield mui-textfield--float-label width-small">
+                <input value={actor} type="text" name="actor" onChange={e => setActor(e.target.value)}/>
+                    <label>Singer</label>
+                </div>
+                <div className="mui-textfield mui-textfield--float-label">
+                    <textarea value={lyrics} type="text" name="lyrics" onChange={e => setLyrics(e.target.value)}/>
+                    <label>Lyrics</label>
+                </div>
+            <button className={`mui-btn mui-btn--raised mui-btn--primary`} type="submit"> Add Song </button>
         </form>
             )}
         </Mutation>
