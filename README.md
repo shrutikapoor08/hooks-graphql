@@ -15,5 +15,5 @@ You will also see any lint errors in the console.
 
 ## TODO
 - ~~update UI automatically~~ (done)
-- ~~beautify the UI ~~ (done)
+- ~~beautify the UI~~ (done)
 - pull from an open source graphQL API
