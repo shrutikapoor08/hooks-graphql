@@ -1,0 +1,49 @@
+
+
+h1{
+    font-size: 1.75em;
+    font-weight: bold;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+h3{
+    font-size: 1.2em;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+p{
+    font-size: 1.0em;
+    font-weight: lighter;
+
+}
+
+body{
+    background: #F0F0F0;
+}
+
+.mui-form{
+    width: 96%;
+    margin-top: 20px;
+}
+.song-container{
+    display: flex;
+    flex-flow: row wrap;
+}
+.song-list-item{
+    position: relative;
+    width: 48%;
+    border-radius: 3px;
+    border: 1px solid #e9e9e9;
+    margin: 5px 2px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.text-wrapper{
+    padding-left: 20px;
+}
+
+.width-small {
+    margin-right: 10px;
+    display: inline-block;
+}

@@ -18,13 +18,28 @@ const Home = ({ data: { loading, error, songs } }) => {
         return (
             <Container>
                 <AddSong/>
+                <div className={`song-container`}>
                 {state.songs && state.songs.map(song => (
-                    <div key={`song-${song.id}`}>
+                    <div key={`song-${song.id}`} className={'song-list-item'}>
+                        <div className={'text-wrapper'}>
                         <h1>{song.name}</h1>
                         <h3>{song.actor}</h3>
                         <p>{song.lyrics}</p>
+                        </div>
+                       {/*<Mutation*/}
+                           {/*mutation={DELETE_SONG}>*/}
+                           {/*{ (deleteSong) =>*/}
+                           {/*<button onClick={() => {*/}
+                               {/*dispatch({type: "DELETE_CONTENT", payload: {id: song.id}});*/}
+                               {/*deleteSong({variables: {id: {id: song.id}}});*/}
+                           {/*}}>*/}
+                               {/*Remove song*/}
+                           {/*</button>*/}
+                           {/*}*/}
+                       {/*</Mutation>*/}
                     </div>
                 ))}
+            </div>
             </Container>
         );
     }
