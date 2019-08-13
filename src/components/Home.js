@@ -1,8 +1,11 @@
 import React, { useEffect, useContext} from "react";
-import {graphql} from "react-apollo";
+import {graphql, Mutation} from "react-apollo";
 import Container from "muicss/lib/react/container";
 import { singleActor } from '../graphql/queries'
 import AddSong from './AddSong'
+import { DELETE_SONG } from '../graphql/mutations'
+
+import SongItem from './SongItem'
 import Context from '../context'
 
 const Home = ({ data: { loading, error, songs } }) => {
