@@ -2,7 +2,11 @@
   "name": "hooks-graphql",
   "version": "0.0.38",
   "description": "A sample integration of React hooks into graphql",
-  "keywords": ["hooks", "react", "graphql"],
+  "keywords": [
+    "hooks",
+    "react",
+    "graphql"
+  ],
   "author": "Shruti Kapoor",
   "main": "index.js",
   "dependencies": {
@@ -11,6 +15,7 @@
     "apollo-client": "^2.6.0",
     "apollo-client-preset": "1.0.5",
     "apollo-link-http": "^1.5.14",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "graphiql": "^0.13.0",
     "graphql": "0.11.7",
     "graphql-tag": "^2.10.1",
