@@ -1,7 +1,7 @@
 import React, { useEffect, useContext} from "react";
 import {graphql} from "react-apollo";
 import Container from "muicss/lib/react/container";
-import { singleActor } from '../graphql/queries'
+import { singleArtist } from '../graphql/queries'
 import AddSong from './AddSong'
 import Context from '../context'
 
@@ -23,20 +23,9 @@ const Home = ({ data: { loading, error, songs } }) => {
                     <div key={`song-${song.id}`} className={'song-list-item'}>
                         <div className={'text-wrapper'}>
                         <h1>{song.name}</h1>
-                        <h3>{song.actor}</h3>
+                        <h3>{song.artist}</h3>
                         <p>{song.lyrics}</p>
                         </div>
-                       {/*<Mutation*/}
-                           {/*mutation={DELETE_SONG}>*/}
-                           {/*{ (deleteSong) =>*/}
-                           {/*<button onClick={() => {*/}
-                               {/*dispatch({type: "DELETE_CONTENT", payload: {id: song.id}});*/}
-                               {/*deleteSong({variables: {id: {id: song.id}}});*/}
-                           {/*}}>*/}
-                               {/*Remove song*/}
-                           {/*</button>*/}
-                           {/*}*/}
-                       {/*</Mutation>*/}
                     </div>
                 ))}
             </div>
@@ -47,10 +36,10 @@ const Home = ({ data: { loading, error, songs } }) => {
 };
 
 
-export default graphql(singleActor, {
+export default graphql(singleArtist, {
     options: ({ match }) => ({
         variables: {
-            actor: match.params.slug,
+            artist: match.params.slug,
             name: match.params.slug,
             lyrics: match.params.slug
         }

@@ -7,7 +7,7 @@ import Context from '../context';
 
 const AddSong = () => {
     const [name, setName] = useState("");
-    const [actor, setActor] = useState("");
+    const [artist, setArtist] = useState("");
     const [lyrics, setLyrics] = useState("");
     const {dispatch} = useContext(Context);
 
@@ -18,15 +18,15 @@ const AddSong = () => {
             e.preventDefault();
             addSong({ variables: { song: {
                         name,
-                        actor,
+                        artist,
                         lyrics
                         }}
                     });
-            const songs = [{name, actor, lyrics}];
+            const songs = [{name, artist, lyrics}];
             dispatch({type: "ADD_CONTENT", payload: songs});
             setName("");
             setLyrics("");
-            setActor("");
+            setArtist("");
         }}>
                 <legend>Add a new song</legend>
                 <div className={'mui-textfield mui-textfield--float-label width-small'}>
@@ -34,8 +34,8 @@ const AddSong = () => {
                     <label>Name</label>
                 </div>
                 <div className="mui-textfield mui-textfield--float-label width-small">
-                <input value={actor} type="text" name="actor" onChange={e => setActor(e.target.value)}/>
-                    <label>Singer</label>
+                <input value={artist} type="text" name="artist" onChange={e => setArtist(e.target.value)}/>
+                    <label>Artist</label>
                 </div>
                 <div className="mui-textfield mui-textfield--float-label">
                     <textarea value={lyrics} type="text" name="lyrics" onChange={e => setLyrics(e.target.value)}/>

@@ -4,7 +4,7 @@ export const ADD_SONG = gql`
   mutation AddSong($song: SongCreateInput!) {
     createSong(data: $song) {
       name
-      actor
+      artist
       lyrics
     }
   }
